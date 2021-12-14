@@ -352,6 +352,12 @@ local function getHints(self,windows)
           if t[i].appname==minapp then
             local w=tremove(t,i)
             tinsert(t[c],w)
+            -- remap subhint be mapped from numbers to letters
+            -- maybe with something along the lines of the following
+            local n2l_mapping={'a','s','d','f','g','h','j','k','l'}
+            local mapped_letter=n2l_mapping[c]
+            w.hint=w.hint..mapped_letter
+            -- instead of appending a number
             w.hint=w.hint..c
           else i=i+1 end
         end
